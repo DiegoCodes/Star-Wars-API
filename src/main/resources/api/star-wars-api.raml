@@ -1,0 +1,21 @@
+#%RAML 1.0
+title: Star Wars API
+version: v1
+description: An API for Star Wars Characters
+mediaType: application/csv
+
+/characters:
+  get:
+    queryParameters:
+      gender:
+        type: string
+        description: use to query characters by gender
+        example: female
+        required: false
+    
+    responses:
+      200:
+        body:
+          application/csv: 
+            type: string
+            example: !include /characters.csv
